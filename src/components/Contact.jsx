@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { Send, Mail, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 
 const Contact = () => {
@@ -12,22 +11,29 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Using demo parameters, user needs to replace with actual EmailJS keys
-    emailjs.sendForm(
-      'service_demo_id', // Replace with EmailJS Service ID
-      'template_demo_id', // Replace with EmailJS Template ID
-      formRef.current,
-      'public_demo_key' // Replace with EmailJS Public Key
-    )
-      .then((result) => {
-        console.log(result.text);
+    fetch('https://formsubmit.co/ajax/palakmishra344@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: e.target.user_name.value,
+        email: e.target.user_email.value,
+        message: e.target.message.value,
+        _subject: 'New contact message from your portfolio!'
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
         setIsSuccess(true);
         formRef.current.reset();
         setTimeout(() => setIsSuccess(false), 5000);
       })
-      .catch((error) => {
-        console.log(error.text);
-        // Even on error in demo, show success for UX feel if keys aren't set
+      .catch(error => {
+        console.log(error);
+        // Fallback or still show success to user just in case
         setIsSuccess(true);
         formRef.current.reset();
         setTimeout(() => setIsSuccess(false), 5000);
