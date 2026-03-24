@@ -122,7 +122,7 @@ const Skills = () => {
             <motion.div 
               key={idx}
               variants={defaultAnimations}
-              className={`glass p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group ${idx === skillCategories.length - 1 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+              className={`glass p-8 rounded-2xl border border-white/5 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group ${idx === skillCategories.length - 1 ? 'md:col-span-2 lg:col-span-1 lg:col-start-2' : ''}`}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/20 to-transparent blur-2xl -z-10 transition-opacity duration-500 opacity-0 group-hover:opacity-100"></div>
               
