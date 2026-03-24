@@ -81,6 +81,14 @@ const skillCategories = [
       { name: "XAMPP", icon: SiXampp, color: "text-orange-500" },
       { name: "Postman", icon: SiPostman, color: "text-orange-400" },
     ]
+  },
+  {
+    title: "Soft Skills",
+    skills: [
+      { name: "Problem Solving", icon: FaBrain, color: "text-purple-400" },
+      { name: "Communication", icon: FaHandshake, color: "text-green-400" },
+      { name: "Team Collaboration", icon: FaUsers, color: "text-blue-400" },
+    ]
   }
 ];
 
